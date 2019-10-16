@@ -30,16 +30,16 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("tweets",tweetRepository.findAll());
+        model.addAttribute("tweets",tweetRepository.findAllOrderDesc());
         return "home";
     }
     @PostMapping("/home")
     public String home(@ModelAttribute @Valid User user, BindingResult result, Model model) {
         User userDb = userRepository.findByEmail(user.getEmail()).orElseThrow(UserNotFoundException::new);
-/*        if (result.hasErrors() || !BCrypt.checkpw(user.getPassword(), userDb.getPassword())) {
+        if (result.hasErrors() || !BCrypt.checkpw(user.getPassword(), userDb.getPassword())) {
             model.addAttribute("error", "pwdMismatch");
             return "home";
-        }*/
+        }
 
         if(result.hasErrors() || userDb.getPassword().equals(user.getPassword())) {
             model.addAttribute("error", "pwdMismatch");

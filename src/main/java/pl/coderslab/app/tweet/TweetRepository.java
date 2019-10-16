@@ -3,6 +3,7 @@ package pl.coderslab.app.tweet;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -13,5 +14,9 @@ import javax.transaction.Transactional;
 @Transactional
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
-    List<Tweet> findAllByUserId(Long id);
+    List<Tweet> findAllByUserIdOrderByCreatedDesc(Long id);
+
+
+    @Query("select t from Tweet t order by t.created desc")
+    List<Tweet> findAllOrderDesc();
 }

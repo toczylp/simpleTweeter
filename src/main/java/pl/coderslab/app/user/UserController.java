@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/{id}/tweets")
     public String addTweet(@PathVariable Long id, Model model) {
-        model.addAttribute("tweets", tweetRepository.findAllByUserId(id));
+        model.addAttribute("tweets", tweetRepository.findAllByUserIdOrderByCreatedDesc(id));
         Tweet tweet = new Tweet();
         tweet.setUser(userRepository.findById(id).orElseThrow(UserNotFoundException::new));
         model.addAttribute("tweet", tweet);
@@ -31,9 +31,10 @@ public class UserController {
     }
     @PostMapping("/{id}/tweets")
     public String addTweet(@ModelAttribute @Valid Tweet tweet, BindingResult result) {
-/*        if (result.hasErrors()) {
+        if (result.hasErrors()) {
             return "tweets/tweets";
-        }*/
+        }
+        tweet.setId(null);
         tweetRepository.save(tweet);
         return "redirect:../{id}/tweets";
     }
