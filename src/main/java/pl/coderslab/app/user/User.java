@@ -1,8 +1,12 @@
 package pl.coderslab.app.user;
 
+import java.util.List;
+import pl.coderslab.app.tweet.Tweet;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 
 @Entity
 public class User {
@@ -23,6 +27,8 @@ public class User {
     @NotBlank
     @Column(nullable = false, unique = true)
     private String email;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Tweet> tweets = new ArrayList<>();
 
     public User() {
     }
