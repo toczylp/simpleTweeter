@@ -1,10 +1,10 @@
 package pl.coderslab.app.tweet;
 
+import java.util.List;
+import pl.coderslab.app.comment.Comment;
 import pl.coderslab.app.user.User;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,6 +16,8 @@ public class Tweet {
     @ManyToOne
     private User user;
 
+    @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
+    private List<Comment> comments;
     @NotBlank
     private String text;
 

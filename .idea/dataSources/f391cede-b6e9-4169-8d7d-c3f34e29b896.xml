@@ -957,88 +957,140 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="244" parent="20" name="Tweet"/>
-    <table id="245" parent="20" name="User"/>
-    <column id="246" parent="244" name="id">
+    <table id="244" parent="20" name="Comment"/>
+    <table id="245" parent="20" name="Tweet"/>
+    <table id="246" parent="20" name="User"/>
+    <column id="247" parent="244" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="244" name="created">
+    <column id="248" parent="244" name="created">
       <Position>2</Position>
       <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="244" name="text">
+    <column id="249" parent="244" name="text">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="244" name="user_id">
+    <column id="250" parent="244" name="tweet_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="250" parent="244" name="FKtjo83phj1ffkewrkbxqmfvw36">
+    <column id="251" parent="244" name="user_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="252" parent="244" name="FKcc5n08r8pndrkekxtc05q69e4">
+      <ColNames>tweet_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="253" parent="244" name="FKhlbnnmiua9xpvfq8y1u1a15ie">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="251" parent="244" name="PRIMARY">
+    <key id="254" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="252" parent="244" name="FKtjo83phj1ffkewrkbxqmfvw36">
+    <foreign-key id="255" parent="244" name="FKcc5n08r8pndrkekxtc05q69e4">
+      <ColNames>tweet_id</ColNames>
+      <RefSchemaName>tweetDB</RefSchemaName>
+      <RefTableName>Tweet</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="256" parent="244" name="FKhlbnnmiua9xpvfq8y1u1a15ie">
       <ColNames>user_id</ColNames>
       <RefSchemaName>tweetDB</RefSchemaName>
       <RefTableName>User</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="253" parent="245" name="id">
+    <column id="257" parent="245" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="245" name="email">
+    <column id="258" parent="245" name="created">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="245" name="text">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="245" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="261" parent="245" name="FKtjo83phj1ffkewrkbxqmfvw36">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="262" parent="245" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="263" parent="245" name="FKtjo83phj1ffkewrkbxqmfvw36">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>tweetDB</RefSchemaName>
+      <RefTableName>User</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="264" parent="246" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="246" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="245" name="firstName">
+    <column id="266" parent="246" name="firstName">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="245" name="lastName">
+    <column id="267" parent="246" name="lastName">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="245" name="password">
+    <column id="268" parent="246" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="258" parent="245" name="UK_e6gkqunxajvyxl5uctpl2vl2p">
+    <index id="269" parent="246" name="UK_e6gkqunxajvyxl5uctpl2vl2p">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="259" parent="245" name="PRIMARY">
+    <key id="270" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="260" parent="245" name="UK_e6gkqunxajvyxl5uctpl2vl2p">
+    <key id="271" parent="246" name="UK_e6gkqunxajvyxl5uctpl2vl2p">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UK_e6gkqunxajvyxl5uctpl2vl2p</UnderlyingIndexName>
     </key>

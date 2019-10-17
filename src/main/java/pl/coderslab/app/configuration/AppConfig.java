@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.app.tweet.TweetConverter;
 import pl.coderslab.app.user.UserConverter;
 
 import javax.persistence.Converter;
@@ -48,6 +49,10 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public UserConverter getUserConverter() {
         return new UserConverter();
+    }
+    @Bean
+    public TweetConverter getTweetConverter() {
+        return new TweetConverter();
     }
 
     @Override

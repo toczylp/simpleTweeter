@@ -1,6 +1,8 @@
 package pl.coderslab.app.user;
 
 import java.util.List;
+
+import pl.coderslab.app.comment.Comment;
 import pl.coderslab.app.tweet.Tweet;
 
 import javax.persistence.*;
@@ -22,7 +24,8 @@ public class User {
     @NotBlank
     @Column(nullable = false)
     private String password;
-
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
     @Email
     @NotBlank
     @Column(nullable = false, unique = true)
