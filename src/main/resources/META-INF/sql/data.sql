@@ -15,3 +15,8 @@ insert into Tweet (created, text, user_id) VALUES ('2019-10-15T20:15:31.569946',
 insert into Tweet (created, text, user_id) VALUES ('2019-10-15T20:45:31.569946', 'Tweet 10', 2 );
 insert into Tweet (created, text, user_id) VALUES ('2019-10-15T20:43:31.569946', 'Tweet 11', 3 );
 insert into Tweet (created, text, user_id) VALUES ('2019-10-15T20:42:31.569946', 'Tweet 12', 3 );
+
+INSERT INTO tweetDB.Message (id, created, message, readFlag, recipient_id, sender_id) VALUES (1, '2019-10-20 19:24:28.197000', 'jh', false, 1, 2);
+INSERT INTO tweetDB.Message (id, created, message, readFlag, recipient_id, sender_id) VALUES (2, '2019-10-20 19:28:34.544000', 'cbnc', false, 1, 2);
+INSERT INTO tweetDB.Message (id, created, message, readFlag, recipient_id, sender_id) VALUES (3, '2019-10-20 19:28:41.853000', 'c ', false, 2, 1);
+INSERT INTO tweetDB.Message (id, created, message, readFlag, recipient_id, sender_id) VALUES (4, '2019-10-20 19:29:59.306000', 'bncvc', false, 2, 1);

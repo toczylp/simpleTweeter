@@ -3,6 +3,7 @@ package pl.coderslab.app.user;
 import java.util.List;
 
 import pl.coderslab.app.comment.Comment;
+import pl.coderslab.app.message.Message;
 import pl.coderslab.app.tweet.Tweet;
 
 import javax.persistence.*;
@@ -32,6 +33,9 @@ public class User {
     private String email;
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Tweet> tweets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.REMOVE)
+    private List<Message> messages = new ArrayList<>();
 
     public User() {
     }
